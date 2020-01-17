@@ -1,0 +1,18 @@
+<div class="content">
+        <button ng-click="order = 'name'">Sort By Name</button>
+        <button ng-click="order = 'price'">Stop Sorting</button>
+        <input type="text" ng-model="search" placeholder="Seach For An Item" />
+        <ul id="items-list">
+                <li ng-repeat="list in list | orderBy: order | filter: search">
+                        <h3>  {{list.name}} - {{list.rate | currency: 'dkk'}} </h3>
+                        <div class="remove" ng-click="removeItem(list)">x</div>
+                </li>
+        </ul>
+        <form ng-submit="addItem()">
+                <input type="text" placeholder="Name" ng-model="newitem.name" />                
+                <input type="text" placeholder="Price" ng-model="newitem.price" />
+                <input type="submit" value="Add New Item" />
+
+        </form>
+        <a href="" ng-click="removeAll()">Remove All Items</a>
+</div>
